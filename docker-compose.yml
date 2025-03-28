@@ -25,6 +25,11 @@ services:
       - "8080:80"
     environment:
       PHP_EXTENSION_PGSQL: ON
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
 
   adminer:
     image: adminer

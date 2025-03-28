@@ -12,11 +12,23 @@ CREATE TABLE tasks
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Add example task
+-- Add example tasks
 INSERT INTO tasks
     (title, description, status, due_date)
 VALUES
     ('Hello World',
         'This is an example task.',
         'pending',
+        '2099-01-01'),
+    ('Test pending',
+        'This is Test.',
+        'pending',
+        '2099-01-01'),
+    ('Test completed',
+        'This is Test.',
+        'completed',
+        '2099-01-01'),
+    ('Test in-progress',
+        'This is Test.',
+        'in-progress',
         '2099-01-01');
