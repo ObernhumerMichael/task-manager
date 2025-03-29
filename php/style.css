@@ -3,6 +3,8 @@ h3 {
     margin: 0px;
 }
 
+/* Tasks */
+
 #tasks {
     margin: 5px;
 
@@ -26,6 +28,8 @@ h3 {
     border-radius: 5px;
 }
 
+/* Status */
+
 .status {
     border-radius: 5px;
 }
@@ -40,4 +44,35 @@ h3 {
 
 .completed {
     background-color: lightgreen;
+}
+
+/* Insert Form */
+
+form {
+    background: #EDE8D0;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    width: 50%;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+label {
+    width: 24%;
+}
+
+input[type=text],
+textarea,
+input[type=datetime-local] {
+    width: 75%;
+    background-color: ;
+}
+
+input[type=submit] {
+    background-color: lightgrey;
+    width: 24%;
 }
