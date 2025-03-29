@@ -32,6 +32,7 @@ h3 {
 
 .status {
     border-radius: 5px;
+    padding: 5px;
 }
 
 .pending {
@@ -69,7 +70,6 @@ input[type=text],
 textarea,
 input[type=datetime-local] {
     width: 75%;
-    background-color: ;
 }
 
 input[type=submit] {

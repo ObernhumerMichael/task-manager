@@ -38,9 +38,13 @@ class Database
         }
     }
 
-    // Example function to get all tasks
     public static function getAllTasks(): array
     {
         return self::query("SELECT * FROM tasks;");
+    }
+
+    public static function insertTask($title, $description, $due_date)
+    {
+        self::query("INSERT INTO tasks (title, description, due_date) VALUES (?, ?, ?)", [$title, $description, $due_date]);
     }
 }
