@@ -8,6 +8,8 @@
     <title>Task Manager</title>
 </head>
 
+<script src="functions.js"></script>
+
 <body>
     <h1>Task Manager</h1>
     <div id="insert">
@@ -27,7 +29,9 @@
         $tasks = Database::getAllTasks();
         foreach ($tasks as $task) {
             echo "<div class='task'>";
-            echo "<h3>" . $task["title"] . "</h3>";
+            echo "<h3>" . $task["title"];
+            echo ' <button class="delete" onclick="deleteTask(' . $task["id"] . ')">X</button>';
+            echo "</h3>";
             echo "<p>" . $task["description"] . "</p>";
             echo "<span class='status " . $task["status"] . "'>" . $task["status"] . "</span>";
             echo "</div>";

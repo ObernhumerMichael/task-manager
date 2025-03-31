@@ -26,13 +26,13 @@ class Database
     }
 
     // General query method with prepared statements
-    public static function query(string $query, array $params = []): array
+    public static function query(string $query, array $params = []): PDOStatement
     {
         try {
             $pdo = self::connect();
             $stmt = $pdo->prepare($query);
             $stmt->execute($params);
-            return $stmt->fetchAll();
+            return $stmt;
         } catch (PDOException $e) {
             die("Query failed: " . $e->getMessage());
         }
@@ -40,11 +40,16 @@ class Database
 
     public static function getAllTasks(): array
     {
-        return self::query("SELECT * FROM tasks;");
+        return self::query("SELECT * FROM tasks;")->fetchAll();
     }
 
     public static function insertTask($title, $description, $due_date)
     {
-        self::query("INSERT INTO tasks (title, description, due_date) VALUES (?, ?, ?)", [$title, $description, $due_date]);
+        self::query("INSERT INTO tasks (title, description, due_date) VALUES (?, ?, ?);", [$title, $description, $due_date]);
+    }
+
+    public static function deleteTask($id)
+    {
+        self::query("DELETE FROM tasks WHERE id=?;", [$id]);
     }
 }
